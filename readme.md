@@ -50,12 +50,22 @@ For the purposes of this exercise the parameters passed to the model can be foun
 
 <H3><A HREF=/MonteCarloPricing>Monte Carlo Techniques for Stock Pricing</A></H3>
 
-Simulating the stock price of <B>Microsoft</B> for the upcoming 250 trading days MC techniques to forecast the prices:
+Simulating the stock price of <B>Microsoft</B> for the upcoming 250 trading days MC techniques were used to forecast the prices (100 trajectories were simulated):
+
 <img src="https://render.githubusercontent.com/render/math?math=\begin{equation*}\text{PriceToday}=\text{PriceYesterday} \times e^{\underbrace{\mu -\frac{\sigma^2}{2}}_{\text{drift}} %2B \underbrace{\sigma \mathbf{Z}(\text{Rand[0,1]})}_{\text{volatility}}}.\end{equation*}">
 
 <IMG SRC=/MonteCarloPricing/IMG/PriceTrajectories.png alt="MSFT Stock Price Forecast" width="800" height="300">
 
 <H3><A HREF=/TradingBot>Automated Trading Strategies</A></H3>
+<H4>Overview</H4>
+Basic automated trading bot which implements strategies on real-time price data of the CRYPTO-market. The <B>Relative Strength Index (RSI)</B> measures the magintude of recent price changes to evaluate overbought or oversold conditions in the price of a stock: <img src="https://render.githubusercontent.com/render/math?math=\text{RSI}=100 - \frac{100}{1 %2B \frac{\overline{\text{Gain}}}{\overline{\text{Loss}}}}.">
+  
+<H4>Requirements</H4>
+  
+- [x] <A HREF=https://github.com/sammchardy/python-binance>python-binance</A>
+- [x] <A HREF=https://mrjbq7.github.io/ta-lib/>TA-Lib</A>
+- [x] <A HREF=https://numpy.org/>numpy</A>
+- [x] <A HREF=https://pypi.org/project/websocket-client/>websocket_client</A>
 
 <H3>References</H3>
 [1] https://www.investopedia.com/terms/h/heston-model.asp
@@ -63,3 +73,5 @@ Simulating the stock price of <B>Microsoft</B> for the upcoming 250 trading days
 [2] https://www.binance.com
 
 [3] https://finance.yahoo.com/
+  
+[4] https://github.com/binance/binance-spot-api-docs
