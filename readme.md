@@ -16,7 +16,7 @@ the aforementioned equations can be written in the equivallent form:
 where:
 <img src="https://render.githubusercontent.com/render/math?math=\overline{W}= \rho W+\sqrt{1-\rho^2}\hat{W}.">
 
-For the purposes of this exercise the parameters passed to the model can be found in the following model:
+The parameters passed to the model can be found in the following model:
 
 <TABLE>
   <TR>
