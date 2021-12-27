@@ -1,7 +1,7 @@
 <H1>Financial Engineering</H1>
   
 <H3><A HREF=/StochasticNumericalMethods>Stochastic Numerical Methods in Financial Mathematics</A></H3>
-The <B>Heston</B> Stochastic Volatility Model assumes that the price of the <B>asset</B> is described by the equations:
+The <B>Heston</B> Stochastic Volatility Model assumes that the price of an <B>asset</B> is described by the equations:
 
 <img src="https://render.githubusercontent.com/render/math?math=dS_{t}=rS_{t}dt+\sqrt{V_t} S_t dW_t, \quad S_0=s,">
 
