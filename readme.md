@@ -51,7 +51,9 @@ For the purposes of this exercise the parameters passed to the model can be foun
 <H3><A HREF=/MonteCarloPricing>Monte Carlo Techniques for Stock Pricing</A></H3>
 
 Simulating the stock price of <B>Microsoft</B> for the upcoming 250 trading days MC techniques to forecast the prices:
-<img src="https://render.githubusercontent.com/render/math?math=\begin{equation*}\text{PriceToday}=\text{PriceYesterday} \times e^{\underbrace{\mu -\frac{\sigma^2}{2}}_{\text{drift}} \text{&} \underbrace{\sigma \mathbf{Z}(\text{Rand[0,1]})}_{\text{volatility}}}.\end{equation*}">
+<img src="https://render.githubusercontent.com/render/math?math=\begin{equation*}\text{PriceToday}=\text{PriceYesterday} \times e^{\underbrace{\mu -\frac{\sigma^2}{2}}_{\text{drift}} %2B \underbrace{\sigma \mathbf{Z}(\text{Rand[0,1]})}_{\text{volatility}}}.\end{equation*}">
+
+<IMG SRC=/MonteCarloPricing/IMG/PriceTrajectories.png alt="MSFT Stock Price Forecast" width="800" height="300">
 
 <H3><A HREF=/TradingBot>Automated Trading Strategies</A></H3>
 
