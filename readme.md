@@ -10,7 +10,7 @@ The <B>Heston</B> Stochastic Volatility Model assumes that the price of an <B>as
 If <img src="https://render.githubusercontent.com/render/math?math=X_t=log(S_t)">
 then by applying the <a href="https://en.wikipedia.org/wiki/It%C3%B4%27s_lemma#Mathematical_formulation_of_It%C3%B4's_lemma">Itô's lemma</a>
 the aforementioned equations can be written in the equivallent form:
-<img src="https://render.githubusercontent.com/render/math?math=dX_t= (r-\frac{V_t}{2})dt+\sqrt{V_t}dW_{t}, \quad X_0 =v,">
+<img src="https://render.githubusercontent.com/render/math?math=dX_t= (r-\frac{V_t}{2})dt+\sqrt{V_t}dW_{t}, \quad X_0 =x,">
 
 <img src="https://render.githubusercontent.com/render/math?math=dV_t= \kappa(\theta-V_t)dt+\eta\sqrt{V_t}d\overline{W_{t}}, \quad V_0 =v,">
 where:
