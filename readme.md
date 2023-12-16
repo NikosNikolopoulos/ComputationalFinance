@@ -3,18 +3,18 @@
 <H3><A HREF=/StochasticNumericalMethods>Stochastic Numerical Methods in Financial Mathematics</A></H3>
 The <B>Heston</B> Stochastic Volatility Model assumes that the price of an <B>asset</B> is described by the equations:
 
-<img src="https://render.githubusercontent.com/render/math?math=dS_{t}=rS_{t}dt+\sqrt{V_t} S_t dW_t, \quad S_0=s,">
+$S_{t}=rS_{t}dt+\sqrt{V_t} S_t dW_t, \quad S_0=s$
 
-<img src="https://render.githubusercontent.com/render/math?math=dV_t= \kappa(\theta-V_t)dt+\eta\sqrt{V_t}d\overline{W_{t}}, \quad V_0 =v.">
+$dV_t= \kappa(\theta-V_t)dt+\eta\sqrt{V_t}d\overline{W_{t}}, \quad V_0 =v.$
 
-If <img src="https://render.githubusercontent.com/render/math?math=X_t=log(S_t)">
+If $X_t=log(S_t)$
 then by applying the <a href="https://en.wikipedia.org/wiki/It%C3%B4%27s_lemma#Mathematical_formulation_of_It%C3%B4's_lemma">Itô's lemma</a>
 the aforementioned equations can be written in the equivallent form:
-<img src="https://render.githubusercontent.com/render/math?math=dX_t= (r-\frac{V_t}{2})dt+\sqrt{V_t}dW_{t}, \quad X_0 =x,">
+$dX_t= (r-\frac{V_t}{2})dt+\sqrt{V_t}dW_{t}, \quad X_0 =x$
 
-<img src="https://render.githubusercontent.com/render/math?math=dV_t= \kappa(\theta-V_t)dt+\eta\sqrt{V_t}d\overline{W_{t}}, \quad V_0 =v,">
+$dV_t= \kappa(\theta-V_t)dt+\eta\sqrt{V_t}d\overline{W_{t}}, \quad V_0 =v,$
 where:
-<img src="https://render.githubusercontent.com/render/math?math=\overline{W}= \rho W+\sqrt{1-\rho^2}\hat{W}.">
+$\overline{W}= \rho W+\sqrt{1-\rho^2}\hat{W}.$
 
 The parameters passed to the model can be found in the following model:
 
@@ -23,19 +23,19 @@ The parameters passed to the model can be found in the following model:
     <TH>Parameters</TH> <TH>Symbol</TH> <TH>Values</TH>
   </TR>
   <TR>  
-  <TD>Mean Reverison</TD> <TD><img src="https://render.githubusercontent.com/render/math?math=\kappa"></TD><TD>1</TD>
+  <TD>Mean Reverison</TD> <TD>$\kappa$</TD><TD>1</TD>
   </TR>
   <TR>
-    <TD>Long Run Variance</TD> <TD><img src="https://render.githubusercontent.com/render/math?math=\theta"></TD> <TD>0.09</TD>
+    <TD>Long Run Variance</TD> <TD>$\theta$</TD> <TD>0.09</TD>
   </TR>
   <TR>
     <TD>Current Variance</TD> <TD> v </TD> <TD>0.09</TD>
   </TR>
   <TR>
-    <TD>Correlation</TD> <TD><img src="https://render.githubusercontent.com/render/math?math=\rho"></TD><TD>-0.3</TD>
+    <TD>Correlation</TD> <TD>$\rho$</TD><TD>-0.3</TD>
   </TR>
   <TR>
-    <TD>Volatility</TD> <TD><img src="https://render.githubusercontent.com/render/math?math=\eta"></TD><TD>1</TD> 
+    <TD>Volatility</TD> <TD>$\eta$</TD><TD>1</TD> 
   </TR>
   <TR>
     <TD>Maturity</TD> <TD>T</TD> <TD>1</TD>
@@ -44,7 +44,7 @@ The parameters passed to the model can be found in the following model:
     <TD>Interest Rate</TD><TD>r</TD><TD>0</TD>
   </TR>
   <TR>
-    <TD>Strike Prices</TD><TD>K</TD><TD><img src="https://render.githubusercontent.com/render/math?math=\{80,100,120\}"></TD>
+    <TD>Strike Prices</TD><TD>K</TD><TD>$\{80,100,120\}$</TD>
   </TR>
 </TABLE>
 
@@ -52,13 +52,15 @@ The parameters passed to the model can be found in the following model:
 
 Simulating the stock price of <B>Microsoft</B> for the upcoming 250 trading days MC techniques were used to forecast the prices (100 trajectories were simulated):
 
-<img src="https://render.githubusercontent.com/render/math?math=\begin{equation*}\text{PriceToday}=\text{PriceYesterday} \times e^{\underbrace{\mu -\frac{\sigma^2}{2}}_{\text{drift}} %2B \underbrace{\sigma \mathbf{Z}(\text{Rand[0,1]})}_{\text{volatility}}}.\end{equation*}">
+$$\text{PriceToday}=\text{PriceYesterday} \times e^{\underbrace{\mu -\frac{\sigma^2}{2}}\_{\text{drift}} + \underbrace{\sigma \mathbf{Z}(\text{Rand[0,1]})}_{\text{volatility}}}.$$ 
 
 <IMG SRC=/MonteCarloPricing/IMG/PriceTrajectories.png alt="MSFT Stock Price Forecast" width="800" height="300">
 
 <H3><A HREF=/TradingBot>Automated Trading Strategies</A></H3>
 <H4>Overview</H4>
-Basic automated trading bot which implements strategies on real-time price data of the CRYPTO-market. The <B>Relative Strength Index (RSI)</B> measures the magintude of recent price changes to evaluate overbought or oversold conditions in the price of a stock: <img src="https://render.githubusercontent.com/render/math?math=\text{RSI}=100 - \frac{100}{1 %2B \frac{\overline{\text{Gain}}}{\overline{\text{Loss}}}}.">
+Basic automated trading bot which implements strategies on real-time price data of the CRYPTO-market. The <B>Relative Strength Index (RSI)</B> measures the magintude of recent price changes to evaluate overbought or oversold conditions in the price of a stock:
+
+$\text{RSI}= 100 - \frac{100}{1 + \frac{\overline{\text{Gain}}}{\overline{\text{Loss}}}}.$
   
 <H4>Requirements</H4>
   
