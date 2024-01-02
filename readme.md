@@ -16,7 +16,7 @@ $dV_t= \kappa(\theta-V_t)dt+\eta\sqrt{V_t}d\overline{W_{t}}, \quad V_0 =v,$
 where:
 $\overline{W}= \rho W+\sqrt{1-\rho^2}\hat{W}.$
 
-The parameters passed to the model can be found in the following model:
+The parameters passed to the model can be found in the following table:
 
 <TABLE>
   <TR>
