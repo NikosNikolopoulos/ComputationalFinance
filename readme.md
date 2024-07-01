@@ -1,7 +1,81 @@
-<H1>Financial Engineering</H1>
-  
-<H3><A HREF=/StochasticNumericalMethods>Stochastic Numerical Methods in Financial Mathematics</A></H3>
-The <B>Heston</B> Stochastic Volatility Model assumes that the price of an <B>asset</B> is described by the equations:
+
+# Contents
+- [Prerequisites](#prerequisites)
+- [Docker](#docker)
+- [Pricing Financial Instruments](#pricing)
+    - [Fourier Method](#fourier-method)
+    - [Model Independent Approach](#model-free)
+        - [IBM CPLEX](#ibm-optimization-(cplex))
+        - [European Basket Call Option](#european-basket-call-option) 
+    - [Monte Carlo](#monte-carlo)
+        - [European Call Option](#european-call-option)
+        - [Geometric Asian Option](#geometric-asian-option)
+        - [MSFT Stock Price](#msft-stock-price)
+- [Trading Strategies](#trading-strategies)
+    - [Trading Bot](#trading-bot)
+- [References](#references)
+
+# [Prerequisites](./docker/requirements.txt)
+
+# Docker
+
+To reproduce the results, simply run the `run.sh` bash script in any linux distribution.
+
+```bash
+> ./run.sh
+```
+
+# Pricing
+
+## Fourier Method
+
+### [European Put Option](./pynbs/Pricing/FourierMethod/EuropeanPutOption.ipynb) 
+
+## Model Free
+
+### IBM Optimization (CPLEX)
+
+#### Use IBM Decision Optimization CPLEX Modeling for Python
+
+Let's use the DOcplex Python library to write the mathematical model in Python.
+
+#### Set up the prescriptive model
+
+#### Create the model
+
+All objects of the model belong to one model instance.
+
+#### Define the decision variables.
+- The continuous variable *z* represents the dual variable corresponding to the probability measure in the primal problem.
+- The continuous matrix variable **y** represents dual variable corresponding to the call prices in the primal problem.
+
+#### Express the objective
+
+We want to find the sub-replicating portfolio (interpretation of dual problem).
+
+### [European Basket Call Option](./pynbs/Pricing/ModelFree/EuropeanBasketOption.ipynb)
+
+```math
+\mathcal{C}_0=\mathcal{C}_1\cup \mathcal{C}_2
+```
+```math
+\mathcal{C}_1=\left \{s\in \mathbb{R}^n_+ \mid \forall i, s_i=0 \text{ or } K_{ij} \text{ for some }j\right\}
+```
+```math
+\mathcal{C}_2=\bigcup\limits_{k=1}^n\mathfrak{B}_k
+```
+```math
+\mathfrak{B}_k=\left\{s\in \mathbb{R}^n_+ \mid \forall i \not= k, s_i=0 \text{ or } K_{ij} \text{ for some }j, \ s_k=w_k^{-1}\Big( K- \sum\limits_{i=1,i\not=k}^n w_is_i \Big)\ge 0\right\}
+```
+```math
+\mathcal{C}_3=\left \{(s_1,\dots,s_n) \mid \text{ for some } i, s_i=K_{i0} \text{ or } K_{im} \text{ and for some }p, s_j=K_{jp} \ \forall \ j\not=i\right\}
+```
+
+## Monte Carlo
+
+### [European Call Option](./pynbs/Pricing/MonteCarlo/EuropeanCallOption.ipynb)
+
+The **Heston** Stochastic Volatility Model assumes that the price of an **asset** is described by the equations:
 
 $S_{t}=rS_{t}dt+\sqrt{V_t} S_t dW_t, \quad S_0=s$
 
@@ -18,62 +92,41 @@ $\overline{W}= \rho W+\sqrt{1-\rho^2}\hat{W}.$
 
 The parameters passed to the model can be found in the following table:
 
-<TABLE>
-  <TR>
-    <TH>Parameters</TH> <TH>Symbol</TH> <TH>Values</TH>
-  </TR>
-  <TR>  
-  <TD>Mean Reverison</TD> <TD>$\kappa$</TD><TD>1</TD>
-  </TR>
-  <TR>
-    <TD>Long Run Variance</TD> <TD>$\theta$</TD> <TD>0.09</TD>
-  </TR>
-  <TR>
-    <TD>Current Variance</TD> <TD> v </TD> <TD>0.09</TD>
-  </TR>
-  <TR>
-    <TD>Correlation</TD> <TD>$\rho$</TD><TD>-0.3</TD>
-  </TR>
-  <TR>
-    <TD>Volatility</TD> <TD>$\eta$</TD><TD>1</TD> 
-  </TR>
-  <TR>
-    <TD>Maturity</TD> <TD>T</TD> <TD>1</TD>
-  </TR>
-  <TR>
-    <TD>Interest Rate</TD><TD>r</TD><TD>0</TD>
-  </TR>
-  <TR>
-    <TD>Strike Prices</TD><TD>K</TD><TD>$\{80,100,120\}$</TD>
-  </TR>
-</TABLE>
+| Parameters | Symbol | Values |
+| --- | --- | --- |
+| Mean Reverison | $\kappa$ | 1   |
+| Long Run Variance | $\theta$ | 0.09 |
+| Current Variance | v   | 0.09 |
+| Correlation | $\rho$ | \-0.3 |
+| Volatility | $\eta$ | 1   |
+| Maturity | T   | 1   |
+| Interest Rate | r   | 0   |
+| Strike Prices | K   | $\{80,100,120\}$ |
 
-<H3><A HREF=/MonteCarloPricing>Monte Carlo Techniques for Stock Pricing</A></H3>
+### [Geometric Asian Option](./pynbs/Pricing/MonteCarlo/GeometricAsianOption.ipynb)
 
-Simulating the stock price of <B>Microsoft</B> for the upcoming 250 trading days MC techniques were used to forecast the prices (100 trajectories were simulated):
+### [MSFT Stock Price](./pynbs/Pricing/MonteCarlo/StockPriceMSFT.ipynb)
+
+Simulating the stock price of **Microsoft** for the upcoming 250 trading days MC techniques were used to forecast the prices (100 trajectories were simulated):
 
 $$\text{PriceToday}=\text{PriceYesterday} \times e^{\underbrace{\mu -\frac{\sigma^2}{2}}\_{\text{drift}} + \underbrace{\sigma \mathbf{Z}(\text{Rand[0,1]})}_{\text{volatility}}}.$$ 
 
-<IMG SRC=/MonteCarloPricing/IMG/PriceTrajectories.png alt="MSFT Stock Price Forecast" width="800" height="300">
+![MSFT Stock Price Forecast](/images/StockPriceTrajectoriesMSFT.png)
 
-<H3><A HREF=/TradingBot>Automated Trading Strategies</A></H3>
-<H4>Overview</H4>
-Basic automated trading bot which implements strategies on real-time price data of the CRYPTO-market. The <B>Relative Strength Index (RSI)</B> measures the magintude of recent price changes to evaluate overbought or oversold conditions in the price of a stock:
+# Trading Strategies
+
+## [Trading Bot](./pynbs/Trading/bot.py) 
+
+Basic automated trading bot which implements strategies on real-time price data of the CRYPTO-market. The **Relative Strength Index (RSI)** measures the magintude of recent price changes to evaluate overbought or oversold conditions in the price of a stock:
 
 $\text{RSI}= 100 - \frac{100}{1 + \frac{\overline{\text{Gain}}}{\overline{\text{Loss}}}}.$
-  
-<H4>Requirements</H4>
-  
-- [x] <A HREF=https://github.com/sammchardy/python-binance>python-binance</A>
-- [x] <A HREF=https://mrjbq7.github.io/ta-lib/>TA-Lib</A>
-- [x] <A HREF=https://numpy.org/>numpy</A>
-- [x] <A HREF=https://pypi.org/project/websocket-client/>websocket_client</A>
 
-<H3>References</H3>
-[1] https://www.investopedia.com/terms/h/heston-model.asp
-
-[2] https://www.binance.com
-
-[3] https://finance.yahoo.com/
-  
-[4] https://github.com/binance/binance-spot-api-docs
+# References
+- [heston-model](https://www.investopedia.com/terms/h/heston-model.asp)
+- [binance](https://www.binance.com)
+- [yahoo-finance](https://finance.yahoo.com/)
+- [binance-spot-api](https://github.com/binance/binance-spot-api-docs)
+- [python-binance](https://github.com/sammchardy/python-binance) 
+- [TA-Lib](https://mrjbq7.github.io/ta-lib/) 
+- [numpy](https://numpy.org/) 
+- [websocket_client](https://pypi.org/project/websocket-client/)
