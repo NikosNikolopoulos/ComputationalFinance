@@ -5,7 +5,7 @@
 - [Pricing Financial Instruments](#pricing)
     - [Fourier Method](#fourier-method)
     - [Model Independent Approach](#model-free)
-        - [IBM CPLEX](#ibm-optimization-(cplex))
+        - [IBM CPLEX](#ibm-optimization-cplex)
         - [European Basket Call Option](#european-basket-call-option) 
     - [Monte Carlo](#monte-carlo)
         - [European Call Option](#european-call-option)
@@ -33,7 +33,7 @@ To reproduce the results, simply run the `run.sh` bash script in any linux distr
 
 ## Model Free
 
-### IBM Optimization (CPLEX)
+### IBM Optimization CPLEX
 
 #### Use IBM Decision Optimization CPLEX Modeling for Python
 
