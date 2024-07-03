@@ -98,7 +98,15 @@ The dual problem is given as follows.
 \end{aligned}
 ```
 
-It is enough to check the constraints for each $s \in \mathcal{C}_0$  not for all $s \in \mathbb{R}^n_{+}$ where
+It is enough to check the constraints for each
+```math
+s \in \mathcal{C}_0
+```
+not for all
+```math
+s \in \mathbb{R}^n_{+}
+```
+where
 
 ```math
 \mathcal{C}_0=\mathcal{C}_1\cup \mathcal{C}_2
@@ -110,7 +118,7 @@ It is enough to check the constraints for each $s \in \mathcal{C}_0$  not for al
 \mathcal{C}_2=\bigcup\limits_{k=1}^n\mathfrak{B}_k
 ```
 ```math
-\mathfrak{B}_k=\left\{s\in \mathbb{R}^n_+ \mid \forall i \not= k, s_i=0 \text{ or } K_{ij} \text{ for some }j, \ s_k=w_k^{-1}\Big( K- \sum\limits_{i=1,i\not=k}^n w_is_i \Big)\ge 0\right\}
+\mathfrak{B}_k=\left\{s\in \mathbb{R}^n_+ \mid \forall i \not= k, s_i=0 \text{ or } K_{ij} \text{ for some }j, \ s_k=w_k^{-1}\Big( K- \sum\limits_{i=1,i\not=k}^n w_is_i \Big)\ge 0\right\}.
 ```
 
 The resulting linear program can be written as follows.
@@ -127,8 +135,8 @@ The resulting linear program can be written as follows.
 
 ```math
  \begin{align*}
-        &\textbf{Check if} z+ \sum \limits _{i=1}^n \sum \limits_{j=1}^m \left( s_i - K_{ij} \right)^+y_{ij} \le \left( \mathbf{w \cdot s} - K \right)^+, \quad \forall \ \mathbf{s} \in \mathfrak{C}_0, \\
-        &\textbf{or find} \quad \mathbf{s^*} \in \mathfrak{C}_0 \ \textbf{ such that the inequality is violated.} \\
+        &\textbf{Check if } z+ \sum \limits _{i=1}^n \sum \limits_{j=1}^m \left( s_i - K_{ij} \right)^+y_{ij} \le \left( \mathbf{w \cdot s} - K \right)^+, \quad \forall \ \mathbf{s} \in \mathfrak{C}_0, \\
+        &\textbf{or find } \quad \mathbf{s^*} \in \mathfrak{C}_0 \ \textbf{ such that the inequality is violated.} \\
     \end{align*}
 ```
 
@@ -196,11 +204,15 @@ The parameters passed to the model can be found in the following table:
 
 Paoyff functions of **arithmetic**
 
-$\left( \frac{1}{n} \sum_{i=1}^{n} S_{t_i} - K \right)^+$
+```math
+\left( \frac{1}{n} \sum_{i=1}^{n} S_{t_i} - K \right)^+
+```
 
 and **geometric** Asian Options
 
-$\left( \left( \prod_{i=1}^{n} S_{t_i} \right)  ^{1/n} - K \right)^+$.
+```math
+\left( \left( \prod_{i=1}^{n} S_{t_i} \right)  ^{1/n} - K \right)^+.
+```
 
 ### [MSFT Stock Price](./pynbs/Pricing/MonteCarlo/StockPriceMSFT.ipynb)
 
