@@ -1,0 +1,8 @@
+numpy
+scipy
+matplotlib
+jupyter
+readline
+docplex==2.12.182
+cplex
+contextlib2
